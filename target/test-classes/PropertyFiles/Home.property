@@ -1,0 +1,6 @@
+url=https://webuildsg.github.io/data/
+driver=webdriver.chrome.driver
+path=src/test/resources/Drivers/chrome/chromedriver.exe
+search=//*[@id='search']
+reportPath=./target/Report/StatusReport.html
+ScreenshotPath=./target/Report/screenshot/
