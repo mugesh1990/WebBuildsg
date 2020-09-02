@@ -1,5 +1,6 @@
 package com.allobject.pages;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +63,7 @@ public class ActiveUser extends Components {
 		programingpage.click();
 	}
 
-	public void loadLInkTxtValues(String ActiveGroupvalue) {
+	public void loadLInkTxtValues(String ActiveGroupvalue) throws IOException {
 		int count = 0;
 		boolean check = false;
 
@@ -80,13 +81,14 @@ public class ActiveUser extends Components {
 
 		}
 		if (check == true) {
-			Assert.assertEquals(true, true);
+		    extentReportUpdate(logger,"Active userPage ", driver.getTitle(),true, true);
 		} else {
 			Assert.assertEquals(false, true);
+			extentReportUpdate(logger,"Active userPage ", driver.getTitle(),false, true);
 		}
 	}
 
-	public void loadLInkurlValue() {
+	public void loadLInkurlValue() throws IOException {
 		int count = 0;
 
 		for (WebElement element : activenewUserGroup) {
@@ -99,9 +101,10 @@ public class ActiveUser extends Components {
 		// System.out.println(linktext.size()+" "+url.size());
 
 		Assert.assertEquals(count >= url.size(), true);
+		extentReportUpdate(logger,"Active userPage ", driver.getTitle(),count >= url.size(), true);
 	}
 
-	public void loadLInktxtvalue(String value) {
+	public void loadLInktxtvalue(String value) throws IOException {
 		int newvalue = Integer.parseInt(value);
 
 		for (WebElement element : activeUserGroupvalues) {
@@ -109,13 +112,14 @@ public class ActiveUser extends Components {
 			if (Integer.parseInt(element.getText()) >= newvalue) {
 
 				Assert.assertEquals(true, true);
+				extentReportUpdate(logger,"Active userPage ", driver.getTitle(),true, true);
 			} else {
-				Assert.assertEquals(false, true);
+				extentReportUpdate(logger,"Active userPage ", driver.getTitle(),false, true);
 			}
 		}
 	}
 
-	public void ActivegroupPagevalidation(String groupname) throws InterruptedException {
+	public void ActivegroupPagevalidation(String groupname) throws InterruptedException, IOException {
 
 		int count = 1;
 		boolean status = false;
@@ -127,6 +131,7 @@ public class ActiveUser extends Components {
 				driver.findElement(By.xpath("//*[@id='events-per-group']/div[" + count + "]/div[1]/a")).click();
 				status = true;
 				Assert.assertEquals(status, true);
+				extentReportUpdate(logger,"Active userPage ", driver.getTitle(),status, true);
 				break;
 			} else {
 				count++;
