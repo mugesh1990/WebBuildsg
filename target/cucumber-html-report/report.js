@@ -13,7 +13,7 @@ formatter.feature({
   ]
 });
 formatter.scenarioOutline({
-  "line": 21,
+  "line": 6,
   "name": "Title of your scenario outline",
   "description": "",
   "id": "webuildsg-test-automation;title-of-your-scenario-outline",
@@ -21,75 +21,71 @@ formatter.scenarioOutline({
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 20,
-      "name": "@ActivenUserPage"
+      "line": 5,
+      "name": "@HomePage"
     }
   ]
 });
 formatter.step({
-  "line": 22,
+  "line": 7,
   "name": "Load the chrome Browser with url",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 23,
-  "name": "redirect to Activeuser page",
+  "line": 8,
+  "name": "Check The Activity tracker menu are linked with proper page",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 24,
-  "name": "check the activegoup with \"\u003cactivegroup\u003e\"",
+  "line": 9,
+  "name": "Validate all activity tracker menus are having log",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 25,
-  "name": "All active group should tag with page",
+  "line": 10,
+  "name": "I search \"\u003cvalue\u003e\" with search data filed to filter activity tracker",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 26,
-  "name": "check the active group value more then \"\u003cgroupvalue\u003e\"",
+  "line": 11,
+  "name": "Validate the Social media container are having log",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 27,
-  "name": "check the \"\u003cactivegroup\u003e\" link with proper page landing",
-  "keyword": "Then "
+  "line": 12,
+  "name": "Social media menu are landing on proper page while clicking",
+  "keyword": "And "
 });
 formatter.step({
-  "line": 28,
+  "line": 13,
   "name": "close the Broswer",
   "keyword": "Then "
 });
 formatter.examples({
-  "line": 30,
+  "line": 15,
   "name": "",
   "description": "",
   "id": "webuildsg-test-automation;title-of-your-scenario-outline;",
   "rows": [
     {
       "cells": [
-        "groupvalue",
-        "status",
-        "activegroup"
+        "value"
       ],
-      "line": 31,
+      "line": 16,
       "id": "webuildsg-test-automation;title-of-your-scenario-outline;;1"
     },
     {
       "cells": [
-        "5",
-        "success",
-        ".NET Developers Singapore"
+        "active"
       ],
-      "line": 32,
+      "line": 17,
       "id": "webuildsg-test-automation;title-of-your-scenario-outline;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
-  "line": 32,
+  "line": 17,
   "name": "Title of your scenario outline",
   "description": "",
   "id": "webuildsg-test-automation;title-of-your-scenario-outline;;2",
@@ -101,52 +97,46 @@ formatter.scenario({
       "name": "@weBuildTest"
     },
     {
-      "line": 20,
-      "name": "@ActivenUserPage"
+      "line": 5,
+      "name": "@HomePage"
     }
   ]
 });
 formatter.step({
-  "line": 22,
+  "line": 7,
   "name": "Load the chrome Browser with url",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 23,
-  "name": "redirect to Activeuser page",
+  "line": 8,
+  "name": "Check The Activity tracker menu are linked with proper page",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 24,
-  "name": "check the activegoup with \".NET Developers Singapore\"",
-  "matchedColumns": [
-    2
-  ],
+  "line": 9,
+  "name": "Validate all activity tracker menus are having log",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 25,
-  "name": "All active group should tag with page",
-  "keyword": "Then "
-});
-formatter.step({
-  "line": 26,
-  "name": "check the active group value more then \"5\"",
+  "line": 10,
+  "name": "I search \"active\" with search data filed to filter activity tracker",
   "matchedColumns": [
     0
   ],
   "keyword": "Then "
 });
 formatter.step({
-  "line": 27,
-  "name": "check the \".NET Developers Singapore\" link with proper page landing",
-  "matchedColumns": [
-    2
-  ],
+  "line": 11,
+  "name": "Validate the Social media container are having log",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 28,
+  "line": 12,
+  "name": "Social media menu are landing on proper page while clicking",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 13,
   "name": "close the Broswer",
   "keyword": "Then "
 });
@@ -154,67 +144,55 @@ formatter.match({
   "location": "BasicSteps.load_the_chrome_Browser_with_url()"
 });
 formatter.result({
-  "duration": 24838356500,
+  "duration": 31627870500,
   "status": "passed"
 });
 formatter.match({
-  "location": "ActveUserpageSteps.redirect_to_Activeuser_page()"
+  "location": "HomePageSteps.check_The_Activity_tracker_menu_s_are_linked_with_proper_page()"
 });
 formatter.result({
-  "duration": 3306866600,
+  "duration": 4813567300,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": ".NET Developers Singapore",
-      "offset": 27
-    }
-  ],
-  "location": "ActveUserpageSteps.check_the_activegoup_with(String)"
+  "location": "HomePageSteps.validate_all_activity_tracker_menus_are_having_log()"
 });
 formatter.result({
-  "duration": 1168676400,
-  "status": "passed"
-});
-formatter.match({
-  "location": "ActveUserpageSteps.all_active_group_should_tag_with_page()"
-});
-formatter.result({
-  "duration": 1010359000,
+  "duration": 834951700,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "5",
-      "offset": 40
+      "val": "active",
+      "offset": 10
     }
   ],
-  "location": "ActveUserpageSteps.check_the_active_group_value_more_then(String)"
+  "location": "HomePageSteps.i_search_with_search_data_filed_to_filter_activity_tracker(String)"
 });
 formatter.result({
-  "duration": 1442387900,
+  "duration": 1673619900,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": ".NET Developers Singapore",
-      "offset": 11
-    }
-  ],
-  "location": "ActveUserpageSteps.check_the_link_with_proper_page_landing(String)"
+  "location": "HomePageSteps.validate_the_Social_media_container_are_having_log()"
 });
 formatter.result({
-  "duration": 4544072100,
+  "duration": 752372100,
+  "status": "passed"
+});
+formatter.match({
+  "location": "HomePageSteps.social_media_menu_are_landing_on_proper_page_while_clicking()"
+});
+formatter.result({
+  "duration": 922379400,
   "status": "passed"
 });
 formatter.match({
   "location": "HomePageSteps.close_the_Broswer()"
 });
 formatter.result({
-  "duration": 3273450200,
+  "duration": 5618247000,
   "status": "passed"
 });
 });

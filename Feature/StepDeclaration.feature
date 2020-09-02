@@ -6,8 +6,8 @@ Feature: webuildsg Test Automation
     Scenario Outline: Title of your scenario outline
      Given Load the chrome Browser with url
    Then Check The Activity tracker menu are linked with proper page 
-    Then I search "<value>" with search data filed to filter activity tracker 
     Then Validate all activity tracker menus are having log 
+    Then I search "<value>" with search data filed to filter activity tracker
     Then Validate the Social media container are having log 
     And  Social media menu are landing on proper page while clicking 
     Then close the Broswer
