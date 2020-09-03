@@ -21,128 +21,110 @@ import cucumber.api.java.en.Then;
 
 public class ProgramingLanguage extends Components {
 
-	WebDriver driver;
-	Extentreport extentreport;
-	ExtentReports report;
+    WebDriver driver;
+    Extentreport extentreport;
+    ExtentReports report;
 
-	@FindBy(xpath = "//*[@id='select-language']/li/label")
-	List<WebElement> RadioButtonLabelList;
+    @FindBy(xpath = "//*[@id='select-language']/li/label")
+    List<WebElement> RadioButtonLabelList;
 
-	@FindBy(xpath = "//*[@id='repos-per-programming-language']/p/a")
-	List<WebElement> LanguageSubList;
+    @FindBy(xpath = "//*[@id='repos-per-programming-language']/p/a")
+    List<WebElement> LanguageSubList;
 
-	@FindBy(xpath = "//ul[@class='list-graph']/li[6]/a")
-	WebElement programingpage;
+    @FindBy(xpath = "//ul[@class='list-graph']/li[6]/a")
+    WebElement programingpage;
 
-	@FindBy(xpath = "//*[@class='mr-2 flex-self-stretch']/a")
-	WebElement githubtxtvalue;
+    @FindBy(xpath = "//*[@class='mr-2 flex-self-stretch']/a")
+    WebElement githubtxtvalue;
 
-	/**
-	 * 
-	 * To intilize the driver
-	 * 
-	 * @param driver
-	 */
-	public ProgramingLanguage(WebDriver driver)
-	{
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
+    /**
+     * 
+     * To intilize the driver
+     * 
+     * @param driver
+     */
+    public ProgramingLanguage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
 
-	public void progrmaingLanguagelink()
-	{
-		programingpage.click();
-	}
+    public void progrmaingLanguagelink() {
+        programingpage.click();
+    }
 
-	public void pageBack()
-	{
-		driver.navigate().back();
-	}
+    public void pageBack() {
+        driver.navigate().back();
+    }
 
-	public String pageTitle()
-	{
-		return driver.getTitle();
-	}
+    public String pageTitle() {
+        return driver.getTitle();
+    }
 
-	public void radioButtonClick(String language) throws InterruptedException, IOException
-	{
-		ExtentTest logger = null;
-		Thread.sleep(5000);
-		boolean checked = false;
-		int count = 0;
+    public void radioButtonClick(String language) throws InterruptedException, IOException {
+        ExtentTest logger = null;
+        Thread.sleep(5000);
+        boolean checked = false;
+        int count = 0;
 
-		// To retrieve radion button list using lable
-		for (WebElement element : RadioButtonLabelList)
-		{
-			if (element.getText().trim().equalsIgnoreCase(language))
-			{
-				RadioButtonLabelList.get(count).click();
-				checked = true;
-				break;
-			}
-			else
-			{
-				count++;
-			}
-		}
+        // To retrieve radion button list using lable
+        for (WebElement element : RadioButtonLabelList) {
+            if (element.getText().trim().equalsIgnoreCase(language)) {
+                RadioButtonLabelList.get(count).click();
+                checked = true;
+                break;
+            } else {
+                count++;
+            }
+        }
 
-		if (checked == true)
-		{
-			// extentreport.reportUpdate(pageTitle().toString(), pageTitle(), true, true);
-			Assert.assertEquals(checked, true);
-			extentReportUpdate(logger,"Programing language Page", driver.getTitle(), checked, true);
-		}
-		else
-		{
-			// extentreport.reportUpdate(pageTitle(), pageTitle(), checked, true);
-			Assert.assertEquals(false, true);
-			extentReportUpdate(logger,"Programing language Page", driver.getTitle(), checked, true);
-		}
+        if (checked == true) {
+            // extentreport.reportUpdate(pageTitle().toString(), pageTitle(), true, true);
+            Assert.assertEquals(checked, true);
+            extentReportUpdate(logger, "Programing language Page", driver.getTitle(), checked, true);
+        } else {
+            // extentreport.reportUpdate(pageTitle(), pageTitle(), checked, true);
+            Assert.assertEquals(false, true);
+            extentReportUpdate(logger, "Programing language Page", driver.getTitle(), checked, true);
+        }
 
-	}
+    }
 
-	public void langageSubMenuVisiableCheck() throws InterruptedException, IOException
-	{
+    public void langageSubMenuVisiableCheck() throws InterruptedException, IOException {
 
-		
-		ExtentTest logger = null;
-		// To retrieve radion button list using lable
-		for (WebElement element : LanguageSubList)
-		{
-			if (element.isDisplayed())
-			{
-				Assert.assertEquals(element.isDisplayed(), true);
-				extentReportUpdate(logger,"Programing language Page", driver.getTitle(), element.isDisplayed(), true);
-				// extentreport.reportUpdate(driver.getTitle(), driver.getTitle(), checked,
-				// element.isDisplayed());
-			}
+        ExtentTest logger = null;
+        // To retrieve radion button list using lable
+        for (WebElement element : LanguageSubList) {
+            if (element.isDisplayed()) {
+                Assert.assertEquals(element.isDisplayed(), true);
+                extentReportUpdate(logger, "Programing language Page", driver.getTitle(), element.isDisplayed(), true);
+                // extentreport.reportUpdate(driver.getTitle(), driver.getTitle(), checked,
+                // element.isDisplayed());
+            }
 
-		}
-	}
+        }
+    }
 
-	public void langageSubMenuLinkCheck() throws InterruptedException, IOException
-	{
+    public void langageSubMenuLinkCheck() throws InterruptedException, IOException {
 
-		int count = 0;
-		ExtentTest logger = null;
-		// To retrieve radion button list using lable
-		ArrayList<String> url = new ArrayList<String>();
+        int count = 0;
+        ExtentTest logger = null;
+        // To retrieve radion button list using lable
+        ArrayList<String> url = new ArrayList<String>();
 
-		for (WebElement element : LanguageSubList)
-		{
-			if (element.getAttribute("href").toString().length() > 5)
-			{
-				url.add(element.getAttribute("href").toString());
-				count++;
-			}
+        for (WebElement element : LanguageSubList) {
+            if (element.getAttribute("href").toString().length() > 5) {
+                url.add(element.getAttribute("href").toString());
+                count++;
+            }
 
-		}
+        }
 
-		Assert.assertEquals(LanguageSubList.size() == url.size(), true);
-		// extentreport.reportUpdate(driver.getTitle(), driver.getTitle(),
-		// LanguageSubList.size()==url.size(), true);
-		extentReportUpdate(logger,"Programing language Page", driver.getTitle(), LanguageSubList.size() == url.size(), true);
+        Assert.assertEquals(LanguageSubList.size() == url.size(), true);
+        // extentreport.reportUpdate(driver.getTitle(), driver.getTitle(),
+        // LanguageSubList.size()==url.size(), true);
+        extentReportUpdate(logger, "Programing language Page", driver.getTitle(), LanguageSubList.size() == url.size(),
+                true);
 
-	}
+    }
 
 }

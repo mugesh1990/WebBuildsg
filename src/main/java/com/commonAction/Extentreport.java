@@ -17,32 +17,28 @@ import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 public class Extentreport extends Components {
-	ExtentReports report;
-	WebDriver driver;
+    ExtentReports report;
+    WebDriver driver;
 
-	ProgramingLanguage languagepageobject = new ProgramingLanguage(Components.driver);
+    ProgramingLanguage languagepageobject = new ProgramingLanguage(Components.driver);
 
-	public void reportUpdate(String currrenttest, String Title, boolean expectedvalue, boolean actualvalue)
-	{
-		System.out.println("Entered");
-		ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(getProperty("reportPath")));
-		report = new ExtentReports();
-		report.attachReporter(extent);
-		ExtentTest logger = report.createTest(currrenttest);
-		logger.log(Status.INFO, Title);
-		if (actualvalue == expectedvalue)
-		{
-			logger.log(Status.PASS, "Verified");
-		} 
-		else
-		{
-			logger.log(Status.FAIL, "NotVerified");
-		}
+    public void reportUpdate(String currrenttest, String Title, boolean expectedvalue, boolean actualvalue) {
+        System.out.println("Entered");
+        ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(getProperty("reportPath")));
+        report = new ExtentReports();
+        report.attachReporter(extent);
+        ExtentTest logger = report.createTest(currrenttest);
+        logger.log(Status.INFO, Title);
+        if (actualvalue == expectedvalue) {
+            logger.log(Status.PASS, "Verified");
+        } else {
+            logger.log(Status.FAIL, "NotVerified");
+        }
 
-		// logger2.fail((Markup)
-		// MediaEntityBuilder.createScreenCaptureFromPath(getProperty("ScreenshotPath")+driver.getTitle()));
+        // logger2.fail((Markup)
+        // MediaEntityBuilder.createScreenCaptureFromPath(getProperty("ScreenshotPath")+driver.getTitle()));
 
-		report.flush();
-	}
+        report.flush();
+    }
 
 }

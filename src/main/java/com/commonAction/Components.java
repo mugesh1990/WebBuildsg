@@ -28,177 +28,144 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 public class Components {
 
-	public static String value = "";
-	static ExtentReports report;
-	public static WebElement Elementcurrentvalue;
-	public static String FilePath = "src/test/resources/PropertyFiles/Home.property";
-	public static WebDriver driver;
-	public static ExtentTest logger;
+    public static String value = "";
+    static ExtentReports report;
+    public static WebElement Elementcurrentvalue;
+    public static String FilePath = "src/test/resources/PropertyFiles/Home.property";
+    public static WebDriver driver;
+    public static ExtentTest logger;
 
-	ArrayList<String> linktextvalue = new ArrayList<String>();
-	static ArrayList<String> ActivityTrackerurl = new ArrayList<String>();
-	static Homepage home;
-	
-	
+    ArrayList<String> linktextvalue = new ArrayList<String>();
+    static ArrayList<String> ActivityTrackerurl = new ArrayList<String>();
+    static Homepage home;
 
-	// to ready property file value
-	public static String getProperty(String key)
-	{
-		try 
-		{
-			// System.out.println("entered");
-			Properties pro = new Properties();
-			pro.load(new FileInputStream(new File(FilePath)));
-			value = pro.getProperty(key).toString();
-			// System.out.println(value);
-		}
-		catch (Exception e)
-		{
-			System.out.println(e.toString());
+    // to ready property file value
+    public static String getProperty(String key) {
+        try {
+            // System.out.println("entered");
+            Properties pro = new Properties();
+            pro.load(new FileInputStream(new File(FilePath)));
+            value = pro.getProperty(key).toString();
+            // System.out.println(value);
+        } catch (Exception e) {
+            System.out.println(e.toString());
 
-		}
-		return value;
-	}
+        }
+        return value;
+    }
 
-	// execute the script and maximize the browser
+    // execute the script and maximize the browser
 
-	public static void setupBrowser() {
-		try 
-		{
-			System.setProperty(getProperty("driver"), getProperty("path"));
-			// System.out.println("level2");
-			driver = new ChromeDriver();
-			driver.manage().window().maximize();
+    public static void setupBrowser() {
+        try {
+            System.setProperty(getProperty("driver"), getProperty("path"));
+            // System.out.println("level2");
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
 
-			driver.get(getProperty("url"));
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(getProperty("reportPath")));
-			report = new ExtentReports();
-			report.attachReporter(extent);
-			
-			
-		}
-		catch (Exception e)
-		{
-			System.out.println(e.toString());
-		}
-	}
+            driver.get(getProperty("url"));
+            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+            ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(getProperty("reportPath")));
+            report = new ExtentReports();
+            report.attachReporter(extent);
 
-	// Close the browser
-	public static void closeBrowser() 
-	{
-		try
-		{
-			driver.quit();
-		} 
-		catch (Exception e) 
-		{
-			System.out.println(e.toString());
-		}
-	}
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
 
-	// get the curent page title
-	public String getPageTitle(WebDriver driver)
-	{
-		String title = driver.getTitle();
+    // Close the browser
+    public static void closeBrowser() {
+        try {
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
 
-		return title;
+    // get the curent page title
+    public String getPageTitle(WebDriver driver) {
+        String title = driver.getTitle();
 
-	}
+        return title;
 
-	// get the current element attribute of text value
-	public String getElementText(WebElement element)
-	{
-		String Elementvalue = element.getText();
-		return Elementvalue;
-	}
+    }
 
-	// get the multiple element attripute of txt value
-	public List getMultipleElementText(List<WebElement> list) 
-	{
-		ArrayList<String> elementvalues = new ArrayList<String>();
+    // get the current element attribute of text value
+    public String getElementText(WebElement element) {
+        String Elementvalue = element.getText();
+        return Elementvalue;
+    }
 
-		for (int i = 0; i < list.size(); i++) 
-		{
-			Elementcurrentvalue = list.get(i);
-			elementvalues.add(Elementcurrentvalue.getText());
-		}
+    // get the multiple element attripute of txt value
+    public List getMultipleElementText(List<WebElement> list) {
+        ArrayList<String> elementvalues = new ArrayList<String>();
 
-		return elementvalues;
-	}
+        for (int i = 0; i < list.size(); i++) {
+            Elementcurrentvalue = list.get(i);
+            elementvalues.add(Elementcurrentvalue.getText());
+        }
 
-	public void reportUpdate(String currrenttest, String Title, boolean expectedvalue, boolean actualvalue) {
-		
-		ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(getProperty("reportPath")));
-		report = new ExtentReports();
-		report.attachReporter(extent);
-		ExtentTest logger = report.createTest(currrenttest);
-		logger.log(Status.INFO, Title);
-		if (actualvalue == expectedvalue)
-		{
-			logger.log(Status.PASS, "Verified");
-		}
-		else
-		{
-			logger.log(Status.FAIL, "NotVerified");
-		}
+        return elementvalues;
+    }
 
-		// logger2.fail((Markup)
-		// MediaEntityBuilder.createScreenCaptureFromPath(getProperty("ScreenshotPath")+driver.getTitle()));
+    public void reportUpdate(String currrenttest, String Title, boolean expectedvalue, boolean actualvalue) {
 
-		report.flush();
-	}
-	
-	
-	public void extentReportUpdate(ExtentTest logger,String currrenttest, String Title, boolean expectedvalue, boolean actualvalue) throws IOException
-	{
-		logger = report.createTest(currrenttest);
-		logger.log(Status.INFO, Title);
-		if (actualvalue == expectedvalue)
-		{
-			logger.log(Status.PASS, "Verified");
-		} 
-		else
-		{
-			logger.log(Status.FAIL, "NotVerified");
-		}
+        ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(getProperty("reportPath")));
+        report = new ExtentReports();
+        report.attachReporter(extent);
+        ExtentTest logger = report.createTest(currrenttest);
+        logger.log(Status.INFO, Title);
+        if (actualvalue == expectedvalue) {
+            logger.log(Status.PASS, "Verified");
+        } else {
+            logger.log(Status.FAIL, "NotVerified");
+        }
 
-		// logger2.fail((Markup)
-		
-		
-			String temp=getScreenshot(driver);
-			
-		    logger.pass("Test", MediaEntityBuilder.createScreenCaptureFromPath(temp).build());
-		
-            //logger.pass((Markup) MediaEntityBuilder.createScreenCaptureFromPath(getProperty("ScreenshotPath")+driver.getTitle()));
-		    report.flush();
-		
-	}
-	
-		public static String getScreenshot(WebDriver driver)
-		{
-			TakesScreenshot ts=(TakesScreenshot) driver;
-			
-			File src=ts.getScreenshotAs(OutputType.FILE);
-			
-			String path=System.getProperty("user.dir")+"/Screenshot/"+System.currentTimeMillis()+".png";
-			
-			File destination=new File(path);
-			
-			try 
-			{
-				FileUtils.copyFile(src, destination);
-			} catch (IOException e) 
-			{
-				System.out.println("Capture Failed "+e.getMessage());
-			}
-			
-			return path;
-		}
-		
-	
-	
-	
-	
+        // logger2.fail((Markup)
+        // MediaEntityBuilder.createScreenCaptureFromPath(getProperty("ScreenshotPath")+driver.getTitle()));
+
+        report.flush();
+    }
+
+    public void extentReportUpdate(ExtentTest logger, String currrenttest, String Title, boolean expectedvalue,
+            boolean actualvalue) throws IOException {
+        logger = report.createTest(currrenttest);
+        logger.log(Status.INFO, Title);
+        if (actualvalue == expectedvalue) {
+            logger.log(Status.PASS, "Verified");
+        } else {
+            logger.log(Status.FAIL, "NotVerified");
+        }
+
+        // logger2.fail((Markup)
+
+        String temp = getScreenshot(driver);
+
+        logger.pass("Test", MediaEntityBuilder.createScreenCaptureFromPath(temp).build());
+
+        // logger.pass((Markup)
+        // MediaEntityBuilder.createScreenCaptureFromPath(getProperty("ScreenshotPath")+driver.getTitle()));
+        report.flush();
+
+    }
+
+    public static String getScreenshot(WebDriver driver) {
+        TakesScreenshot ts = (TakesScreenshot) driver;
+
+        File src = ts.getScreenshotAs(OutputType.FILE);
+
+        String path = System.getProperty("user.dir") + "/Screenshot/" + System.currentTimeMillis() + ".png";
+
+        File destination = new File(path);
+
+        try {
+            FileUtils.copyFile(src, destination);
+        } catch (IOException e) {
+            System.out.println("Capture Failed " + e.getMessage());
+        }
+
+        return path;
+    }
 
 }

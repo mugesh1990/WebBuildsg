@@ -27,6 +27,7 @@ Feature: webuildsg Test Automation
      Then check the active group value more then "<groupvalue>"
       Then check the "<activegroup>" link with proper page landing
      Then close the Broswer
+     Then generate report
      
 			Examples: 
      		 | groupvalue | status  |activegroup|
@@ -40,6 +41,7 @@ Feature: webuildsg Test Automation
      Then subMenu Visiablity Check 
      Then subMenus are linkied with proper page
      Then close the Broswer
+     Then generate report
     
      Examples:
     	  |language|
