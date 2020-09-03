@@ -11,6 +11,7 @@ Feature: webuildsg Test Automation
     Then Validate the Social media container are having log 
     And  Social media menu are landing on proper page while clicking 
     Then close the Broswer
+    Then generate report
 
  Examples:
        |value|

@@ -64,7 +64,7 @@ public class ProgramingLanguage extends Components {
 		return driver.getTitle();
 	}
 
-	public void RadioButtonClick(String language) throws InterruptedException, IOException
+	public void radioButtonClick(String language) throws InterruptedException, IOException
 	{
 		ExtentTest logger = null;
 		Thread.sleep(5000);

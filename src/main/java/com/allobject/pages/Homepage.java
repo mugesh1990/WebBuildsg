@@ -100,7 +100,7 @@ public class Homepage extends Components {
 
 	}
 
-	public void ActivityTrackerMenulist() throws IOException
+	public void activityTrackerMenulist() throws IOException
 	{
 		ExtentTest logger1 = null;
 		int count = 0;
@@ -120,7 +120,7 @@ public class Homepage extends Components {
 		extentReportUpdate(logger1,"Home Page", driver.getTitle(), ActivityTrackerurl.size() >= count, true);
 	}
 
-	public void SocialMediacontaner() throws IOException
+	public void socialMediacontaner() throws IOException
 	{
 		int count = 0, count1 = 0;
 		boolean checked = false;
@@ -150,7 +150,7 @@ public class Homepage extends Components {
 		extentReportUpdate(logger,"Home Page ", driver.getTitle(), SocialMediacontainerlogs.size() >= count1, true);
 	}
 	
-	public void InputSearch(String value)
+	public void inputSearch(String value)
 	{
 		Searchdata.sendKeys(value);
 	}

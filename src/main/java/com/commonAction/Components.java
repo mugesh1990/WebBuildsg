@@ -168,10 +168,10 @@ public class Components {
 		
 			String temp=getScreenshot(driver);
 			
-		      logger.pass("Test", MediaEntityBuilder.createScreenCaptureFromPath(temp).build());
+		    logger.pass("Test", MediaEntityBuilder.createScreenCaptureFromPath(temp).build());
 		
             //logger.pass((Markup) MediaEntityBuilder.createScreenCaptureFromPath(getProperty("ScreenshotPath")+driver.getTitle()));
-		report.flush();
+		    report.flush();
 		
 	}
 	

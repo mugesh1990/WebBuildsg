@@ -12,7 +12,7 @@ public class ActveUserpageSteps {
 
 	@Then("^redirect to Activeuser page$")
 	public void redirect_to_Activeuser_page() throws Throwable {
-		activeUser.Activeuserpagelink();
+		activeUser.activeuserpagelink();
 
 	}
 
@@ -33,7 +33,7 @@ public class ActveUserpageSteps {
 
 	@Then("^check the \"([^\"]*)\" link with proper page landing$")
 	public void check_the_link_with_proper_page_landing(String arg1) throws Throwable {
-		activeUser.ActivegroupPagevalidation(arg1);
+		activeUser.activegroupPagevalidation(arg1);
 	}
 
 }

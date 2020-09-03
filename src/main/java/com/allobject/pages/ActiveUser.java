@@ -49,7 +49,8 @@ public class ActiveUser extends Components {
 	@FindBy(xpath = "//*[@id='search']")
 	public static WebElement Searchdata;
 
-	public ActiveUser(WebDriver driver) {
+	public ActiveUser(WebDriver driver)
+	{
 
 		this.driver = driver;
 
@@ -59,40 +60,53 @@ public class ActiveUser extends Components {
 
 	}
 
-	public void Activeuserpagelink() {
+	public void activeuserpagelink()
+	{
 		programingpage.click();
 	}
 
-	public void loadLInkTxtValues(String ActiveGroupvalue) throws IOException {
+	public void loadLInkTxtValues(String ActiveGroupvalue) throws IOException 
+	{
 		int count = 0;
 		boolean check = false;
 
-		for (WebElement element : activenewUserGroup) {
-			if (element.getText().length() > 2) {
+		for (WebElement element : activenewUserGroup)
+		{
+			if (element.getText().length() > 2)
+			{
 				linktext.add(element.getText());
 			}
-			if (element.getText().trim().equalsIgnoreCase(ActiveGroupvalue)) {
+			if (element.getText().trim().equalsIgnoreCase(ActiveGroupvalue)) 
+			{
 
 				check = true;
 				break;
-			} else {
+			}
+			else
+			{
 				count++;
 			}
 
 		}
-		if (check == true) {
+		if (check == true)
+		{
 		    extentReportUpdate(logger,"Active userPage ", driver.getTitle(),true, true);
-		} else {
+		}
+		else
+		{
 			Assert.assertEquals(false, true);
 			extentReportUpdate(logger,"Active userPage ", driver.getTitle(),false, true);
 		}
 	}
 
-	public void loadLInkurlValue() throws IOException {
+	public void loadLInkurlValue() throws IOException 
+	{
 		int count = 0;
 
-		for (WebElement element : activenewUserGroup) {
-			if (element.getAttribute("href").toString().length() >= 1) {
+		for (WebElement element : activenewUserGroup) 
+		{
+			if (element.getAttribute("href").toString().length() >= 1) 
+			{
 				url.add(element.getAttribute("href").toString());
 				count++;
 			}
@@ -113,13 +127,15 @@ public class ActiveUser extends Components {
 
 				Assert.assertEquals(true, true);
 				extentReportUpdate(logger,"Active userPage ", driver.getTitle(),true, true);
-			} else {
+			}
+			else
+			{
 				extentReportUpdate(logger,"Active userPage ", driver.getTitle(),false, true);
 			}
 		}
 	}
 
-	public void ActivegroupPagevalidation(String groupname) throws InterruptedException, IOException {
+	public void activegroupPagevalidation(String groupname) throws InterruptedException, IOException {
 
 		int count = 1;
 		boolean status = false;
@@ -133,7 +149,9 @@ public class ActiveUser extends Components {
 				Assert.assertEquals(status, true);
 				extentReportUpdate(logger,"Active userPage ", driver.getTitle(),status, true);
 				break;
-			} else {
+			}
+			else
+			{
 				count++;
 			}
 		}

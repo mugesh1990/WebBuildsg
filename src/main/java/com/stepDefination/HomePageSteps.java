@@ -28,19 +28,19 @@ public class HomePageSteps extends Components
 	public void check_The_Activity_tracker_menu_s_are_linked_with_proper_page() throws Throwable
 	{
 
-		homepage.ActivityTrackerMenulist();
+		homepage.activityTrackerMenulist();
 	}
 
 	@Then("^I search \"([^\"]*)\" with search data filed to filter activity tracker$")
 	public void i_search_with_search_data_filed_to_filter_activity_tracker(String arg1) throws Throwable
 	{
-		homepage.InputSearch(arg1);
+		homepage.inputSearch(arg1);
 	}
 
 	@Then("^Validate all activity tracker menus are having log$")
 	public void validate_all_activity_tracker_menus_are_having_log() throws Throwable
 	{
-		homepage.ActivityTrackerMenulist();
+		homepage.activityTrackerMenulist();
 	}
 
 	@Then("^Validate the Social media container are having log$")
@@ -78,7 +78,7 @@ public class HomePageSteps extends Components
 	@Then("^Social media menu are landing on proper page while clicking$")
 	public void social_media_menu_are_landing_on_proper_page_while_clicking() throws Throwable
 	{
-		homepage.SocialMediacontaner();
+		homepage.socialMediacontaner();
 	}
 
 	@Then("^close the Broswer$")

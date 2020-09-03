@@ -22,21 +22,20 @@ public class Extentreport extends Components {
 
 	ProgramingLanguage languagepageobject = new ProgramingLanguage(Components.driver);
 
-	@Before
-	public void generateReport() throws IOException {
-		System.out.println("Test");
-	}
-
-	public void reportUpdate(String currrenttest, String Title, boolean expectedvalue, boolean actualvalue) {
+	public void reportUpdate(String currrenttest, String Title, boolean expectedvalue, boolean actualvalue)
+	{
 		System.out.println("Entered");
 		ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(getProperty("reportPath")));
 		report = new ExtentReports();
 		report.attachReporter(extent);
 		ExtentTest logger = report.createTest(currrenttest);
 		logger.log(Status.INFO, Title);
-		if (actualvalue == expectedvalue) {
+		if (actualvalue == expectedvalue)
+		{
 			logger.log(Status.PASS, "Verified");
-		} else {
+		} 
+		else
+		{
 			logger.log(Status.FAIL, "NotVerified");
 		}
 

@@ -17,7 +17,7 @@ public class ProgramingLanguagepageSteps extends Components
 	@Then("^click the Radionbutton with \"([^\"]*)\" languaage$")
 	public void click_the_Radionbutton_with_languaage(String language) throws Throwable
 	{
-		languagepageobject.RadioButtonClick(language);
+		languagepageobject.radioButtonClick(language);
 
 	}
 
