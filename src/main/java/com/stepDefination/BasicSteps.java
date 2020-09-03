@@ -17,4 +17,5 @@ public class BasicSteps extends Components {
 	   System.out.println("Report gererated "+Components.getProperty("reportPath")+"Folder");
 	   System.out.println("Kindly refresh the project. WebBildSG_Automation right click and refresh");
 	}
+	
 }

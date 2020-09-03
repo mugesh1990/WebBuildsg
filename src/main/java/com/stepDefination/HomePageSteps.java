@@ -78,5 +78,11 @@ public class HomePageSteps extends Components {
     public void close_the_Broswer() throws Throwable {
         closeBrowser();
     }
+    @Then("^generate report$")
+    public void generate_report() throws Throwable {
+       System.out.println("Report gererated "+Components.getProperty("reportPath")+"Folder");
+       System.out.println("Kindly refresh the project. WebBildSG_Automation right click and refresh");
+    }
+    
 
 }
