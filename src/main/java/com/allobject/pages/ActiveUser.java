@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.common.action.Components;
+import com.commonaction.Components;
 
 public class ActiveUser extends Components {
 
