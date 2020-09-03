@@ -11,150 +11,132 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.commonaction.Components;
+import com.common.action.Components;
 
 public class ActiveUser extends Components {
 
-	WebDriver driver;
-	ArrayList<String> url = new ArrayList<String>();
-	ArrayList<String> linktext = new ArrayList<String>();
+    WebDriver driver;
+    ArrayList<String> url = new ArrayList<String>();
+    ArrayList<String> linktext = new ArrayList<String>();
 
-	ArrayList<String> linktextvalue = new ArrayList<String>();
-	ArrayList<String> ActivityTrackerurl = new ArrayList<String>();
+    ArrayList<String> linktextvalue = new ArrayList<String>();
+    ArrayList<String> ActivityTrackerurl = new ArrayList<String>();
 
-	@FindBy(xpath = "//ul[@class='list-graph']/li[4]/a")
-	WebElement programingpage;
+    @FindBy(xpath = "//ul[@class='list-graph']/li[4]/a")
+    WebElement programingpage;
 
-	// @FindBy(xpath="//div[@id='events-per-group']//a")
-	@FindBy(xpath = "//div[@id='events-per-group']//a")
-	public List<WebElement> activenewUserGroup;
+    // @FindBy(xpath="//div[@id='events-per-group']//a")
+    @FindBy(xpath = "//div[@id='events-per-group']//a")
+    public List<WebElement> activenewUserGroup;
 
-	@FindBy(xpath = "//*[@id='events-per-group']/div/div[2]")
-	List<WebElement> activeUserGroupvalues;
+    @FindBy(xpath = "//*[@id='events-per-group']/div/div[2]")
+    List<WebElement> activeUserGroupvalues;
 
-	@FindBy(xpath = "//*[@class='list-social']/li[1]/a")
-	WebElement HomeMain;
-	@FindBy(xpath = "//*[@class='list-social']/li[2]/a")
-	WebElement HomeLive;
+    @FindBy(xpath = "//*[@class='list-social']/li[1]/a")
+    WebElement HomeMain;
+    @FindBy(xpath = "//*[@class='list-social']/li[2]/a")
+    WebElement HomeLive;
 
-	@FindBy(xpath = "//ul[@class='list-graph']/li/a")
-	List<WebElement> ActivityTrackerlist;
+    @FindBy(xpath = "//ul[@class='list-graph']/li/a")
+    List<WebElement> ActivityTrackerlist;
 
-	@FindBy(xpath = "//*[@class='social']/li/a")
-	List<WebElement> SocialMediacontainerlist;
+    @FindBy(xpath = "//*[@class='social']/li/a")
+    List<WebElement> SocialMediacontainerlist;
 
-	@FindBy(xpath = "//*[@class='social']/li/a/span")
-	List<WebElement> SocialMediacontainerlogs;
+    @FindBy(xpath = "//*[@class='social']/li/a/span")
+    List<WebElement> SocialMediacontainerlogs;
 
-	@FindBy(xpath = "//*[@id='search']")
-	public static WebElement Searchdata;
+    @FindBy(xpath = "//*[@id='search']")
+    public static WebElement Searchdata;
 
-	public ActiveUser(WebDriver driver)
-	{
+    public ActiveUser(WebDriver driver) {
 
-		this.driver = driver;
+        this.driver = driver;
 
-		// This initElements method will create all WebElements
+        // This initElements method will create all WebElements
 
-		PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver, this);
 
-	}
+    }
 
-	public void activeuserpagelink()
-	{
-		programingpage.click();
-	}
+    public void activeuserpagelink() {
+        programingpage.click();
+    }
 
-	public void loadLInkTxtValues(String ActiveGroupvalue) throws IOException 
-	{
-		int count = 0;
-		boolean check = false;
+    public void loadLInkTxtValues(String ActiveGroupvalue) throws IOException {
+        int count = 0;
+        boolean check = false;
 
-		for (WebElement element : activenewUserGroup)
-		{
-			if (element.getText().length() > 2)
-			{
-				linktext.add(element.getText());
-			}
-			if (element.getText().trim().equalsIgnoreCase(ActiveGroupvalue)) 
-			{
+        for (WebElement element : activenewUserGroup) {
+            if (element.getText().length() > 2) {
+                linktext.add(element.getText());
+            }
+            if (element.getText().trim().equalsIgnoreCase(ActiveGroupvalue)) {
 
-				check = true;
-				break;
-			}
-			else
-			{
-				count++;
-			}
+                check = true;
+                break;
+            } else {
+                count++;
+            }
 
-		}
-		if (check == true)
-		{
-		    extentReportUpdate(logger,"Active userPage ", driver.getTitle(),true, true);
-		}
-		else
-		{
-			Assert.assertEquals(false, true);
-			extentReportUpdate(logger,"Active userPage ", driver.getTitle(),false, true);
-		}
-	}
+        }
+        if (check == true) {
+            extentReportUpdate(logger, "Active userPage ", driver.getTitle(), true, true);
+        } else {
+            Assert.assertEquals(false, true);
+            extentReportUpdate(logger, "Active userPage ", driver.getTitle(), false, true);
+        }
+    }
 
-	public void loadLInkurlValue() throws IOException 
-	{
-		int count = 0;
+    public void loadLInkurlValue() throws IOException {
+        int count = 0;
 
-		for (WebElement element : activenewUserGroup) 
-		{
-			if (element.getAttribute("href").toString().length() >= 1) 
-			{
-				url.add(element.getAttribute("href").toString());
-				count++;
-			}
+        for (WebElement element : activenewUserGroup) {
+            if (element.getAttribute("href").toString().length() >= 1) {
+                url.add(element.getAttribute("href").toString());
+                count++;
+            }
 
-		}
-		// System.out.println(linktext.size()+" "+url.size());
+        }
+        // System.out.println(linktext.size()+" "+url.size());
 
-		Assert.assertEquals(count >= url.size(), true);
-		extentReportUpdate(logger,"Active userPage ", driver.getTitle(),count >= url.size(), true);
-	}
+        Assert.assertEquals(count >= url.size(), true);
+        extentReportUpdate(logger, "Active userPage ", driver.getTitle(), count >= url.size(), true);
+    }
 
-	public void loadLInktxtvalue(String value) throws IOException {
-		int newvalue = Integer.parseInt(value);
+    public void loadLInktxtvalue(String value) throws IOException {
+        int newvalue = Integer.parseInt(value);
 
-		for (WebElement element : activeUserGroupvalues) {
+        for (WebElement element : activeUserGroupvalues) {
 
-			if (Integer.parseInt(element.getText()) >= newvalue) {
+            if (Integer.parseInt(element.getText()) >= newvalue) {
 
-				Assert.assertEquals(true, true);
-				extentReportUpdate(logger,"Active userPage ", driver.getTitle(),true, true);
-			}
-			else
-			{
-				extentReportUpdate(logger,"Active userPage ", driver.getTitle(),false, true);
-			}
-		}
-	}
+                Assert.assertEquals(true, true);
+                extentReportUpdate(logger, "Active userPage ", driver.getTitle(), true, true);
+            } else {
+                extentReportUpdate(logger, "Active userPage ", driver.getTitle(), false, true);
+            }
+        }
+    }
 
-	public void activegroupPagevalidation(String groupname) throws InterruptedException, IOException {
+    public void activegroupPagevalidation(String groupname) throws InterruptedException, IOException {
 
-		int count = 1;
-		boolean status = false;
+        int count = 1;
+        boolean status = false;
 
-		for (WebElement element : activenewUserGroup) {
+        for (WebElement element : activenewUserGroup) {
 
-			if (element.getText().trim().equalsIgnoreCase(groupname)) {
-				Thread.sleep(3000);
-				driver.findElement(By.xpath("//*[@id='events-per-group']/div[" + count + "]/div[1]/a")).click();
-				status = true;
-				Assert.assertEquals(status, true);
-				extentReportUpdate(logger,"Active userPage ", driver.getTitle(),status, true);
-				break;
-			}
-			else
-			{
-				count++;
-			}
-		}
-	}
+            if (element.getText().trim().equalsIgnoreCase(groupname)) {
+                Thread.sleep(3000);
+                driver.findElement(By.xpath("//*[@id='events-per-group']/div[" + count + "]/div[1]/a")).click();
+                status = true;
+                Assert.assertEquals(status, true);
+                extentReportUpdate(logger, "Active userPage ", driver.getTitle(), status, true);
+                break;
+            } else {
+                count++;
+            }
+        }
+    }
 
 }

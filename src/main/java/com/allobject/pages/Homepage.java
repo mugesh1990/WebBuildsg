@@ -13,8 +13,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.allobject.pages.*;
 import com.aventstack.extentreports.ExtentTest;
-import com.commonaction.Components;
-import com.commonaction.Extentreport;
+import com.common.action.Components;
+import com.common.action.Extentreport;
 
 public class Homepage extends Components {
 
